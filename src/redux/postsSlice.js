@@ -15,9 +15,11 @@ export const postsSlice = createSlice({
     updatePost: function (state, action) {
       state.items.map((item) => {
         if (item.id === action.payload.id) {
-          item.title = action.payload.title;
-          item.description = action.payload.description;
-        }
+          return (
+            (item.title = action.payload.title),
+            (item.description = action.payload.description)
+          );
+        } else return null;
       });
     },
   },
